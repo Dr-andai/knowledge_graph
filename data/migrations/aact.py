@@ -7,7 +7,7 @@ from sqlalchemy import create_engine
 # Create SQLAlchemy Engine
 from urllib.parse import quote
 
-with open('password.txt', 'r') as file:
+with open('data/migrations/password.txt', 'r') as file:
     password = file.read().strip()
 
 username = 'andai'
@@ -31,7 +31,7 @@ SELECT DISTINCT
 	INNER JOIN studies USING (nct_id)
 	INNER JOIN detailed_descriptions USING (nct_id)
 	WHERE countries.name = 'Kenya'
-		AND studies.study_first_submitted_date BETWEEN '2020-01-01' AND '2023-12-31'
+		AND studies.study_first_submitted_date BETWEEN '2024-01-01' AND '2024-03-31'
 		ORDER BY first_date DESC;
 """
 
@@ -54,4 +54,4 @@ def save_data(data, data_path):
 
     print("Saved to ✅:", abs_path)
 
-save_data(data, 'trial_data/study_descriptions')
+save_data(data, 'trial_data/study_descriptions_validation')
